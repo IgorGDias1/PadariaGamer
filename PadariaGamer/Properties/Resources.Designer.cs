@@ -79,5 +79,15 @@ namespace PadariaGamer.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Icons8_Windows_8_Users_Exit_512 {
+            get {
+                object obj = ResourceManager.GetObject("Icons8-Windows-8-Users-Exit.512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
