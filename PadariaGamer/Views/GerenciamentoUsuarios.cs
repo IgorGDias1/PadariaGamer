@@ -74,6 +74,9 @@ namespace PadariaGamer.Views
 
         private void btnApagar_Click(object sender, EventArgs e)
         {
+            Classes.Usuario usuario = new Classes.Usuario();
+            usuario.Id = idSelecionado;
+            // Apagar:
 
         }
     }
