@@ -34,8 +34,8 @@
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblSaudacao = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.ptbSair = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbSair)).BeginInit();
             this.SuspendLayout();
             // 
             // btnComandas
@@ -79,8 +79,9 @@
             this.btnUsuarios.Name = "btnUsuarios";
             this.btnUsuarios.Size = new System.Drawing.Size(550, 69);
             this.btnUsuarios.TabIndex = 3;
-            this.btnUsuarios.Text = "Usuário";
+            this.btnUsuarios.Text = "Gerenciamento de Usuário";
             this.btnUsuarios.UseVisualStyleBackColor = true;
+            this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
             // 
             // lblTitulo
             // 
@@ -102,22 +103,23 @@
             this.lblSaudacao.TabIndex = 5;
             this.lblSaudacao.Text = "Olá caro funcionário! Escolha uma opção abaixo:";
             // 
-            // pictureBox1
+            // ptbSair
             // 
-            this.pictureBox1.Image = global::PadariaGamer.Properties.Resources.Icons8_Windows_8_Users_Exit_512;
-            this.pictureBox1.Location = new System.Drawing.Point(513, 9);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(47, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
+            this.ptbSair.Image = global::PadariaGamer.Properties.Resources.Icons8_Windows_8_Users_Exit_512;
+            this.ptbSair.Location = new System.Drawing.Point(513, 9);
+            this.ptbSair.Name = "ptbSair";
+            this.ptbSair.Size = new System.Drawing.Size(47, 50);
+            this.ptbSair.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbSair.TabIndex = 6;
+            this.ptbSair.TabStop = false;
+            this.ptbSair.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(572, 434);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.ptbSair);
             this.Controls.Add(this.lblSaudacao);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.btnUsuarios);
@@ -126,8 +128,9 @@
             this.Controls.Add(this.btnComandas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MenuPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuPrincipal";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbSair)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -141,6 +144,6 @@
         private System.Windows.Forms.Button btnUsuarios;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label lblSaudacao;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox ptbSair;
     }
 }
