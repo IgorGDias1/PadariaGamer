@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PadariaGamer.Classes;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,17 +22,31 @@ namespace PadariaGamer.Views
             InitializeComponent();
             this.usuario = usuario;
             Classes.Produto produto = new Classes.Produto();
+            Classes.Categoria categoria = new Classes.Categoria();
 
             dgvProdutos.DataSource = produto.ListarProdutos();
+
+            // Montar um Array de itens para colocar no cmb:
+            var r = categoria.Categorias(); // r é a tabela bd
+
+            // Percorrer o R, montar a string e adicionar no cmb:
+            foreach (DataRow linha in r.Rows)
+            {
+                cmbCategorias.Items.Add(linha.ItemArray[0].ToString() + " - " + linha.ItemArray[1].ToString());
+                cmbCategoriasEdit.Items.Add(linha.ItemArray[0].ToString() + " - " + linha.ItemArray[1].ToString());
+            }
+
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             // Instanciar o usuário:
             Classes.Produto produto = new Classes.Produto();
+            string[] id = cmbCategorias.Text.Split('-');
+
             produto.Nome = txbNome.Text;
-            produto.Preco = double.Parse(txbPreco.Text); 
-            produto.IdCategoria = int.Parse(txbCategoria.Text);
+            produto.Preco = double.Parse(txbPreco.Text);
+            produto.IdCategoria = int.Parse(id[0]);
             produto.IdRespCadastro = usuario.Id;
 
             if (produto.Adicionar() == true)
@@ -39,7 +55,7 @@ namespace PadariaGamer.Views
                 // Limpar os campos:
                 txbNome.Clear();
                 txbPreco.Clear();
-                txbCategoria.Clear();
+                cmbCategorias.SelectedIndex = 0;
                 // Atualizar o dgv:
                 dgvProdutos.DataSource = produto.ListarProdutos();
             }
@@ -76,11 +92,12 @@ namespace PadariaGamer.Views
         private void btnEditar_Click(object sender, EventArgs e)
         {
             Classes.Produto produto = new Classes.Produto();
+            string[] id = cmbCategoriasEdit.Text.Split('-');
 
             // Obter os valores do txbs:
             produto.Nome = txbNomeEdit.Text;
             produto.Preco = double.Parse(txbPrecoEdit.Text);
-            produto.IdCategoria = int.Parse(txbCategoriaEdit.Text);
+            produto.IdCategoria = int.Parse(id[0]);
             produto.IdRespCadastro = usuario.Id;
             produto.Id = idSelecionado;
 
@@ -94,7 +111,8 @@ namespace PadariaGamer.Views
                 // Limpar os campos de edição:
                 txbNomeEdit.Clear();
                 txbPrecoEdit.Clear();
-                txbCategoriaEdit.Clear();
+                cmbCategoriasEdit.SelectedIndex = 0;
+                cmbCategorias.SelectedIndex = 0;
                 lblApagar.Text = "Selecione um produto para apagar.";
                 // Desativar o grbs:
                 grbEditar.Enabled = false;
@@ -126,7 +144,8 @@ namespace PadariaGamer.Views
                     // Limpar os campos de edição:
                     txbNomeEdit.Clear();
                     txbPrecoEdit.Clear();
-                    txbCategoriaEdit.Clear();
+                    cmbCategorias.SelectedIndex = 0;
+                    cmbCategorias.SelectedIndex = 0;
                     lblApagar.Text = "Selecione um produto para apagar.";
                     // Desativar o grbs:
                     grbEditar.Enabled = false;
@@ -140,10 +159,21 @@ namespace PadariaGamer.Views
             }
         }
 
-        private void cmbCategorias_Click(object sender, EventArgs e)
+        private void btnAdicionarCategoria_Click(object sender, EventArgs e)
         {
             Classes.Categoria categoria = new Classes.Categoria();
-            cmbCategorias.SelectedIndex = categoria.Categorias();
+            categoria.Nome = txbNomeCategoria.Text;
+            
+            if (categoria.Adicionar() == true)
+            {
+                MessageBox.Show("Categoria adicionada com sucesso!");
+                // Limpar o campo:
+                txbNomeCategoria.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Falha ao adicionar a categoria!");
+            }
         }
     }
 }

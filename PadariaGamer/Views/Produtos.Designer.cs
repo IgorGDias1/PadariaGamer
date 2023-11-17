@@ -32,7 +32,6 @@
             this.grbAdicionar = new System.Windows.Forms.GroupBox();
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.lblCategoria = new System.Windows.Forms.Label();
-            this.txbCategoria = new System.Windows.Forms.TextBox();
             this.lblPreco = new System.Windows.Forms.Label();
             this.txbPreco = new System.Windows.Forms.TextBox();
             this.lblNome = new System.Windows.Forms.Label();
@@ -40,7 +39,6 @@
             this.grbEditar = new System.Windows.Forms.GroupBox();
             this.btnEditar = new System.Windows.Forms.Button();
             this.lblCategoriaEdit = new System.Windows.Forms.Label();
-            this.txbCategoriaEdit = new System.Windows.Forms.TextBox();
             this.lblPrecoEdit = new System.Windows.Forms.Label();
             this.txbPrecoEdit = new System.Windows.Forms.TextBox();
             this.lblNomeEdit = new System.Windows.Forms.Label();
@@ -49,10 +47,16 @@
             this.btnApagar = new System.Windows.Forms.Button();
             this.lblApagar = new System.Windows.Forms.Label();
             this.cmbCategorias = new System.Windows.Forms.ComboBox();
+            this.cmbCategoriasEdit = new System.Windows.Forms.ComboBox();
+            this.grbAdicionarCategoria = new System.Windows.Forms.GroupBox();
+            this.btnAdicionarCategoria = new System.Windows.Forms.Button();
+            this.lblNomeCategoria = new System.Windows.Forms.Label();
+            this.txbNomeCategoria = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
             this.grbAdicionar.SuspendLayout();
             this.grbEditar.SuspendLayout();
             this.grbApagar.SuspendLayout();
+            this.grbAdicionarCategoria.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvProdutos
@@ -66,9 +70,9 @@
             // 
             // grbAdicionar
             // 
+            this.grbAdicionar.Controls.Add(this.cmbCategorias);
             this.grbAdicionar.Controls.Add(this.btnAdicionar);
             this.grbAdicionar.Controls.Add(this.lblCategoria);
-            this.grbAdicionar.Controls.Add(this.txbCategoria);
             this.grbAdicionar.Controls.Add(this.lblPreco);
             this.grbAdicionar.Controls.Add(this.txbPreco);
             this.grbAdicionar.Controls.Add(this.lblNome);
@@ -102,13 +106,6 @@
             this.lblCategoria.Size = new System.Drawing.Size(82, 20);
             this.lblCategoria.TabIndex = 5;
             this.lblCategoria.Text = "Categória:";
-            // 
-            // txbCategoria
-            // 
-            this.txbCategoria.Location = new System.Drawing.Point(95, 117);
-            this.txbCategoria.Name = "txbCategoria";
-            this.txbCategoria.Size = new System.Drawing.Size(272, 26);
-            this.txbCategoria.TabIndex = 4;
             // 
             // lblPreco
             // 
@@ -144,9 +141,9 @@
             // 
             // grbEditar
             // 
+            this.grbEditar.Controls.Add(this.cmbCategoriasEdit);
             this.grbEditar.Controls.Add(this.btnEditar);
             this.grbEditar.Controls.Add(this.lblCategoriaEdit);
-            this.grbEditar.Controls.Add(this.txbCategoriaEdit);
             this.grbEditar.Controls.Add(this.lblPrecoEdit);
             this.grbEditar.Controls.Add(this.txbPrecoEdit);
             this.grbEditar.Controls.Add(this.lblNomeEdit);
@@ -181,13 +178,6 @@
             this.lblCategoriaEdit.Size = new System.Drawing.Size(82, 20);
             this.lblCategoriaEdit.TabIndex = 5;
             this.lblCategoriaEdit.Text = "Categória:";
-            // 
-            // txbCategoriaEdit
-            // 
-            this.txbCategoriaEdit.Location = new System.Drawing.Point(95, 117);
-            this.txbCategoriaEdit.Name = "txbCategoriaEdit";
-            this.txbCategoriaEdit.Size = new System.Drawing.Size(272, 26);
-            this.txbCategoriaEdit.TabIndex = 4;
             // 
             // lblPrecoEdit
             // 
@@ -259,19 +249,72 @@
             // 
             // cmbCategorias
             // 
+            this.cmbCategorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCategorias.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCategorias.FormattingEnabled = true;
-            this.cmbCategorias.Location = new System.Drawing.Point(509, 768);
+            this.cmbCategorias.Location = new System.Drawing.Point(95, 115);
             this.cmbCategorias.Name = "cmbCategorias";
-            this.cmbCategorias.Size = new System.Drawing.Size(121, 21);
+            this.cmbCategorias.Size = new System.Drawing.Size(272, 28);
             this.cmbCategorias.TabIndex = 8;
-            this.cmbCategorias.Click += new System.EventHandler(this.cmbCategorias_Click);
+            // 
+            // cmbCategoriasEdit
+            // 
+            this.cmbCategoriasEdit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCategoriasEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCategoriasEdit.FormattingEnabled = true;
+            this.cmbCategoriasEdit.Location = new System.Drawing.Point(95, 115);
+            this.cmbCategoriasEdit.Name = "cmbCategoriasEdit";
+            this.cmbCategoriasEdit.Size = new System.Drawing.Size(272, 28);
+            this.cmbCategoriasEdit.TabIndex = 9;
+            // 
+            // grbAdicionarCategoria
+            // 
+            this.grbAdicionarCategoria.Controls.Add(this.btnAdicionarCategoria);
+            this.grbAdicionarCategoria.Controls.Add(this.lblNomeCategoria);
+            this.grbAdicionarCategoria.Controls.Add(this.txbNomeCategoria);
+            this.grbAdicionarCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbAdicionarCategoria.Location = new System.Drawing.Point(391, 672);
+            this.grbAdicionarCategoria.Name = "grbAdicionarCategoria";
+            this.grbAdicionarCategoria.Size = new System.Drawing.Size(373, 162);
+            this.grbAdicionarCategoria.TabIndex = 9;
+            this.grbAdicionarCategoria.TabStop = false;
+            this.grbAdicionarCategoria.Text = "Adicionar Categoria";
+            // 
+            // btnAdicionarCategoria
+            // 
+            this.btnAdicionarCategoria.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAdicionarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAdicionarCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdicionarCategoria.Location = new System.Drawing.Point(6, 79);
+            this.btnAdicionarCategoria.Name = "btnAdicionarCategoria";
+            this.btnAdicionarCategoria.Size = new System.Drawing.Size(361, 67);
+            this.btnAdicionarCategoria.TabIndex = 6;
+            this.btnAdicionarCategoria.Text = "Adicionar";
+            this.btnAdicionarCategoria.UseVisualStyleBackColor = false;
+            this.btnAdicionarCategoria.Click += new System.EventHandler(this.btnAdicionarCategoria_Click);
+            // 
+            // lblNomeCategoria
+            // 
+            this.lblNomeCategoria.AutoSize = true;
+            this.lblNomeCategoria.Location = new System.Drawing.Point(33, 42);
+            this.lblNomeCategoria.Name = "lblNomeCategoria";
+            this.lblNomeCategoria.Size = new System.Drawing.Size(55, 20);
+            this.lblNomeCategoria.TabIndex = 1;
+            this.lblNomeCategoria.Text = "Nome:";
+            // 
+            // txbNomeCategoria
+            // 
+            this.txbNomeCategoria.Location = new System.Drawing.Point(95, 36);
+            this.txbNomeCategoria.Name = "txbNomeCategoria";
+            this.txbNomeCategoria.Size = new System.Drawing.Size(272, 26);
+            this.txbNomeCategoria.TabIndex = 0;
             // 
             // Produtos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(775, 905);
-            this.Controls.Add(this.cmbCategorias);
+            this.ClientSize = new System.Drawing.Size(775, 858);
+            this.Controls.Add(this.grbAdicionarCategoria);
             this.Controls.Add(this.grbApagar);
             this.Controls.Add(this.grbEditar);
             this.Controls.Add(this.grbAdicionar);
@@ -288,6 +331,8 @@
             this.grbEditar.PerformLayout();
             this.grbApagar.ResumeLayout(false);
             this.grbApagar.PerformLayout();
+            this.grbAdicionarCategoria.ResumeLayout(false);
+            this.grbAdicionarCategoria.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -298,7 +343,6 @@
         private System.Windows.Forms.GroupBox grbAdicionar;
         private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.Label lblCategoria;
-        private System.Windows.Forms.TextBox txbCategoria;
         private System.Windows.Forms.Label lblPreco;
         private System.Windows.Forms.TextBox txbPreco;
         private System.Windows.Forms.Label lblNome;
@@ -306,7 +350,6 @@
         private System.Windows.Forms.GroupBox grbEditar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Label lblCategoriaEdit;
-        private System.Windows.Forms.TextBox txbCategoriaEdit;
         private System.Windows.Forms.Label lblPrecoEdit;
         private System.Windows.Forms.TextBox txbPrecoEdit;
         private System.Windows.Forms.Label lblNomeEdit;
@@ -315,5 +358,10 @@
         private System.Windows.Forms.Button btnApagar;
         private System.Windows.Forms.Label lblApagar;
         private System.Windows.Forms.ComboBox cmbCategorias;
+        private System.Windows.Forms.ComboBox cmbCategoriasEdit;
+        private System.Windows.Forms.GroupBox grbAdicionarCategoria;
+        private System.Windows.Forms.Button btnAdicionarCategoria;
+        private System.Windows.Forms.Label lblNomeCategoria;
+        private System.Windows.Forms.TextBox txbNomeCategoria;
     }
 }
