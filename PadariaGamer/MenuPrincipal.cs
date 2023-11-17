@@ -40,5 +40,11 @@ namespace PadariaGamer
             Views.GerenciamentoUsuarios janela = new Views.GerenciamentoUsuarios();
             janela.Show();
         }
+
+        private void btnProdutos_Click(object sender, EventArgs e)
+        {
+            Views.Produtos janela = new Views.Produtos(usuario);
+            janela.Show();
+        }
     }
 }

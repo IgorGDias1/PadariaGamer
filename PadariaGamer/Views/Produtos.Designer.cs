@@ -30,13 +30,13 @@
         {
             this.dgvProdutos = new System.Windows.Forms.DataGridView();
             this.grbAdicionar = new System.Windows.Forms.GroupBox();
-            this.txbNome = new System.Windows.Forms.TextBox();
-            this.lblNome = new System.Windows.Forms.Label();
-            this.txbPreco = new System.Windows.Forms.TextBox();
-            this.lblPreco = new System.Windows.Forms.Label();
-            this.txbCategoria = new System.Windows.Forms.TextBox();
-            this.lblCategoria = new System.Windows.Forms.Label();
             this.btnAdicionar = new System.Windows.Forms.Button();
+            this.lblCategoria = new System.Windows.Forms.Label();
+            this.txbCategoria = new System.Windows.Forms.TextBox();
+            this.lblPreco = new System.Windows.Forms.Label();
+            this.txbPreco = new System.Windows.Forms.TextBox();
+            this.lblNome = new System.Windows.Forms.Label();
+            this.txbNome = new System.Windows.Forms.TextBox();
             this.grbEditar = new System.Windows.Forms.GroupBox();
             this.btnEditar = new System.Windows.Forms.Button();
             this.lblCategoriaEdit = new System.Windows.Forms.Label();
@@ -45,9 +45,14 @@
             this.txbPrecoEdit = new System.Windows.Forms.TextBox();
             this.lblNomeEdit = new System.Windows.Forms.Label();
             this.txbNomeEdit = new System.Windows.Forms.TextBox();
+            this.grbApagar = new System.Windows.Forms.GroupBox();
+            this.btnApagar = new System.Windows.Forms.Button();
+            this.lblApagar = new System.Windows.Forms.Label();
+            this.cmbCategorias = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
             this.grbAdicionar.SuspendLayout();
             this.grbEditar.SuspendLayout();
+            this.grbApagar.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvProdutos
@@ -57,6 +62,7 @@
             this.dgvProdutos.Name = "dgvProdutos";
             this.dgvProdutos.Size = new System.Drawing.Size(751, 393);
             this.dgvProdutos.TabIndex = 0;
+            this.dgvProdutos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProdutos_CellClick);
             // 
             // grbAdicionar
             // 
@@ -75,54 +81,6 @@
             this.grbAdicionar.TabStop = false;
             this.grbAdicionar.Text = "Adicionar Produto";
             // 
-            // txbNome
-            // 
-            this.txbNome.Location = new System.Drawing.Point(95, 36);
-            this.txbNome.Name = "txbNome";
-            this.txbNome.Size = new System.Drawing.Size(272, 26);
-            this.txbNome.TabIndex = 0;
-            // 
-            // lblNome
-            // 
-            this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(33, 42);
-            this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(55, 20);
-            this.lblNome.TabIndex = 1;
-            this.lblNome.Text = "Nome:";
-            // 
-            // txbPreco
-            // 
-            this.txbPreco.Location = new System.Drawing.Point(95, 76);
-            this.txbPreco.Name = "txbPreco";
-            this.txbPreco.Size = new System.Drawing.Size(272, 26);
-            this.txbPreco.TabIndex = 2;
-            // 
-            // lblPreco
-            // 
-            this.lblPreco.AutoSize = true;
-            this.lblPreco.Location = new System.Drawing.Point(34, 82);
-            this.lblPreco.Name = "lblPreco";
-            this.lblPreco.Size = new System.Drawing.Size(54, 20);
-            this.lblPreco.TabIndex = 3;
-            this.lblPreco.Text = "Preço:";
-            // 
-            // txbCategoria
-            // 
-            this.txbCategoria.Location = new System.Drawing.Point(95, 117);
-            this.txbCategoria.Name = "txbCategoria";
-            this.txbCategoria.Size = new System.Drawing.Size(272, 26);
-            this.txbCategoria.TabIndex = 4;
-            // 
-            // lblCategoria
-            // 
-            this.lblCategoria.AutoSize = true;
-            this.lblCategoria.Location = new System.Drawing.Point(7, 123);
-            this.lblCategoria.Name = "lblCategoria";
-            this.lblCategoria.Size = new System.Drawing.Size(82, 20);
-            this.lblCategoria.TabIndex = 5;
-            this.lblCategoria.Text = "Categória:";
-            // 
             // btnAdicionar
             // 
             this.btnAdicionar.BackColor = System.Drawing.Color.LimeGreen;
@@ -134,6 +92,55 @@
             this.btnAdicionar.TabIndex = 6;
             this.btnAdicionar.Text = "Adicionar";
             this.btnAdicionar.UseVisualStyleBackColor = false;
+            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
+            // 
+            // lblCategoria
+            // 
+            this.lblCategoria.AutoSize = true;
+            this.lblCategoria.Location = new System.Drawing.Point(7, 123);
+            this.lblCategoria.Name = "lblCategoria";
+            this.lblCategoria.Size = new System.Drawing.Size(82, 20);
+            this.lblCategoria.TabIndex = 5;
+            this.lblCategoria.Text = "Categória:";
+            // 
+            // txbCategoria
+            // 
+            this.txbCategoria.Location = new System.Drawing.Point(95, 117);
+            this.txbCategoria.Name = "txbCategoria";
+            this.txbCategoria.Size = new System.Drawing.Size(272, 26);
+            this.txbCategoria.TabIndex = 4;
+            // 
+            // lblPreco
+            // 
+            this.lblPreco.AutoSize = true;
+            this.lblPreco.Location = new System.Drawing.Point(34, 82);
+            this.lblPreco.Name = "lblPreco";
+            this.lblPreco.Size = new System.Drawing.Size(54, 20);
+            this.lblPreco.TabIndex = 3;
+            this.lblPreco.Text = "Preço:";
+            // 
+            // txbPreco
+            // 
+            this.txbPreco.Location = new System.Drawing.Point(95, 76);
+            this.txbPreco.Name = "txbPreco";
+            this.txbPreco.Size = new System.Drawing.Size(272, 26);
+            this.txbPreco.TabIndex = 2;
+            // 
+            // lblNome
+            // 
+            this.lblNome.AutoSize = true;
+            this.lblNome.Location = new System.Drawing.Point(33, 42);
+            this.lblNome.Name = "lblNome";
+            this.lblNome.Size = new System.Drawing.Size(55, 20);
+            this.lblNome.TabIndex = 1;
+            this.lblNome.Text = "Nome:";
+            // 
+            // txbNome
+            // 
+            this.txbNome.Location = new System.Drawing.Point(95, 36);
+            this.txbNome.Name = "txbNome";
+            this.txbNome.Size = new System.Drawing.Size(272, 26);
+            this.txbNome.TabIndex = 0;
             // 
             // grbEditar
             // 
@@ -144,6 +151,7 @@
             this.grbEditar.Controls.Add(this.txbPrecoEdit);
             this.grbEditar.Controls.Add(this.lblNomeEdit);
             this.grbEditar.Controls.Add(this.txbNomeEdit);
+            this.grbEditar.Enabled = false;
             this.grbEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbEditar.Location = new System.Drawing.Point(391, 444);
             this.grbEditar.Name = "grbEditar";
@@ -163,6 +171,7 @@
             this.btnEditar.TabIndex = 6;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // lblCategoriaEdit
             // 
@@ -212,11 +221,58 @@
             this.txbNomeEdit.Size = new System.Drawing.Size(272, 26);
             this.txbNomeEdit.TabIndex = 0;
             // 
+            // grbApagar
+            // 
+            this.grbApagar.Controls.Add(this.btnApagar);
+            this.grbApagar.Controls.Add(this.lblApagar);
+            this.grbApagar.Enabled = false;
+            this.grbApagar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbApagar.Location = new System.Drawing.Point(12, 672);
+            this.grbApagar.Name = "grbApagar";
+            this.grbApagar.Size = new System.Drawing.Size(373, 162);
+            this.grbApagar.TabIndex = 7;
+            this.grbApagar.TabStop = false;
+            this.grbApagar.Text = "Apagar Produto";
+            // 
+            // btnApagar
+            // 
+            this.btnApagar.BackColor = System.Drawing.Color.Red;
+            this.btnApagar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnApagar.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnApagar.Location = new System.Drawing.Point(6, 79);
+            this.btnApagar.Name = "btnApagar";
+            this.btnApagar.Size = new System.Drawing.Size(361, 67);
+            this.btnApagar.TabIndex = 6;
+            this.btnApagar.Text = "Apagar";
+            this.btnApagar.UseVisualStyleBackColor = false;
+            this.btnApagar.Click += new System.EventHandler(this.btnApagar_Click);
+            // 
+            // lblApagar
+            // 
+            this.lblApagar.AutoSize = true;
+            this.lblApagar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApagar.Location = new System.Drawing.Point(7, 46);
+            this.lblApagar.Name = "lblApagar";
+            this.lblApagar.Size = new System.Drawing.Size(349, 25);
+            this.lblApagar.TabIndex = 1;
+            this.lblApagar.Text = "Selecione um produto para apagar!";
+            // 
+            // cmbCategorias
+            // 
+            this.cmbCategorias.FormattingEnabled = true;
+            this.cmbCategorias.Location = new System.Drawing.Point(509, 768);
+            this.cmbCategorias.Name = "cmbCategorias";
+            this.cmbCategorias.Size = new System.Drawing.Size(121, 21);
+            this.cmbCategorias.TabIndex = 8;
+            this.cmbCategorias.Click += new System.EventHandler(this.cmbCategorias_Click);
+            // 
             // Produtos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(775, 678);
+            this.ClientSize = new System.Drawing.Size(775, 905);
+            this.Controls.Add(this.cmbCategorias);
+            this.Controls.Add(this.grbApagar);
             this.Controls.Add(this.grbEditar);
             this.Controls.Add(this.grbAdicionar);
             this.Controls.Add(this.dgvProdutos);
@@ -230,6 +286,8 @@
             this.grbAdicionar.PerformLayout();
             this.grbEditar.ResumeLayout(false);
             this.grbEditar.PerformLayout();
+            this.grbApagar.ResumeLayout(false);
+            this.grbApagar.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -253,5 +311,9 @@
         private System.Windows.Forms.TextBox txbPrecoEdit;
         private System.Windows.Forms.Label lblNomeEdit;
         private System.Windows.Forms.TextBox txbNomeEdit;
+        private System.Windows.Forms.GroupBox grbApagar;
+        private System.Windows.Forms.Button btnApagar;
+        private System.Windows.Forms.Label lblApagar;
+        private System.Windows.Forms.ComboBox cmbCategorias;
     }
 }
