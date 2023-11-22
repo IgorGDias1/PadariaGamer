@@ -48,6 +48,7 @@
             this.btnComandas.TabIndex = 0;
             this.btnComandas.Text = "Comandas";
             this.btnComandas.UseVisualStyleBackColor = true;
+            this.btnComandas.Click += new System.EventHandler(this.btnComandas_Click);
             // 
             // btnProdutos
             // 
