@@ -30,6 +30,7 @@
         {
             this.dgvProdutos = new System.Windows.Forms.DataGridView();
             this.grbAdicionar = new System.Windows.Forms.GroupBox();
+            this.cmbCategorias = new System.Windows.Forms.ComboBox();
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.lblCategoria = new System.Windows.Forms.Label();
             this.lblPreco = new System.Windows.Forms.Label();
@@ -37,6 +38,7 @@
             this.lblNome = new System.Windows.Forms.Label();
             this.txbNome = new System.Windows.Forms.TextBox();
             this.grbEditar = new System.Windows.Forms.GroupBox();
+            this.cmbCategoriasEdit = new System.Windows.Forms.ComboBox();
             this.btnEditar = new System.Windows.Forms.Button();
             this.lblCategoriaEdit = new System.Windows.Forms.Label();
             this.lblPrecoEdit = new System.Windows.Forms.Label();
@@ -46,8 +48,6 @@
             this.grbApagar = new System.Windows.Forms.GroupBox();
             this.btnApagar = new System.Windows.Forms.Button();
             this.lblApagar = new System.Windows.Forms.Label();
-            this.cmbCategorias = new System.Windows.Forms.ComboBox();
-            this.cmbCategoriasEdit = new System.Windows.Forms.ComboBox();
             this.grbAdicionarCategoria = new System.Windows.Forms.GroupBox();
             this.btnAdicionarCategoria = new System.Windows.Forms.Button();
             this.lblNomeCategoria = new System.Windows.Forms.Label();
@@ -84,6 +84,16 @@
             this.grbAdicionar.TabIndex = 1;
             this.grbAdicionar.TabStop = false;
             this.grbAdicionar.Text = "Adicionar Produto";
+            // 
+            // cmbCategorias
+            // 
+            this.cmbCategorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCategorias.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCategorias.FormattingEnabled = true;
+            this.cmbCategorias.Location = new System.Drawing.Point(95, 115);
+            this.cmbCategorias.Name = "cmbCategorias";
+            this.cmbCategorias.Size = new System.Drawing.Size(272, 28);
+            this.cmbCategorias.TabIndex = 8;
             // 
             // btnAdicionar
             // 
@@ -156,6 +166,16 @@
             this.grbEditar.TabIndex = 7;
             this.grbEditar.TabStop = false;
             this.grbEditar.Text = "Editar Produto";
+            // 
+            // cmbCategoriasEdit
+            // 
+            this.cmbCategoriasEdit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCategoriasEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCategoriasEdit.FormattingEnabled = true;
+            this.cmbCategoriasEdit.Location = new System.Drawing.Point(95, 115);
+            this.cmbCategoriasEdit.Name = "cmbCategoriasEdit";
+            this.cmbCategoriasEdit.Size = new System.Drawing.Size(272, 28);
+            this.cmbCategoriasEdit.TabIndex = 9;
             // 
             // btnEditar
             // 
@@ -247,26 +267,6 @@
             this.lblApagar.TabIndex = 1;
             this.lblApagar.Text = "Selecione um produto para apagar!";
             // 
-            // cmbCategorias
-            // 
-            this.cmbCategorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCategorias.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbCategorias.FormattingEnabled = true;
-            this.cmbCategorias.Location = new System.Drawing.Point(95, 115);
-            this.cmbCategorias.Name = "cmbCategorias";
-            this.cmbCategorias.Size = new System.Drawing.Size(272, 28);
-            this.cmbCategorias.TabIndex = 8;
-            // 
-            // cmbCategoriasEdit
-            // 
-            this.cmbCategoriasEdit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCategoriasEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbCategoriasEdit.FormattingEnabled = true;
-            this.cmbCategoriasEdit.Location = new System.Drawing.Point(95, 115);
-            this.cmbCategoriasEdit.Name = "cmbCategoriasEdit";
-            this.cmbCategoriasEdit.Size = new System.Drawing.Size(272, 28);
-            this.cmbCategoriasEdit.TabIndex = 9;
-            // 
             // grbAdicionarCategoria
             // 
             this.grbAdicionarCategoria.Controls.Add(this.btnAdicionarCategoria);
@@ -319,6 +319,7 @@
             this.Controls.Add(this.grbEditar);
             this.Controls.Add(this.grbAdicionar);
             this.Controls.Add(this.dgvProdutos);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Produtos";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -30,9 +30,6 @@ namespace PadariaGamer.Views
 
         private void dgvProdutos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Ativar o grbs:
-            grbLançamento.Enabled = true;
-
             // Obter a linha clicada:
             int linhaSelecionada = dgvProdutos.CurrentCell.RowIndex;
 
@@ -49,28 +46,71 @@ namespace PadariaGamer.Views
 
         private void btnLançar_Click(object sender, EventArgs e)
         {
-            var r = MessageBox.Show("Tem certeza que deseja lançar?", "Aviso!",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if(r == DialogResult.Yes)
+            if(txbQuantidade.Text != "")
             {
-                Classes.OrdemComanda ordem = new Classes.OrdemComanda();
-                // Obter os valores dos campos:
-                ordem.IdFicha = int.Parse(txbComandas.Text);
-                ordem.IdProduto = int.Parse(txbCodProduto.Text);
-                ordem.Quantidade = int.Parse(txbQuantidade.Text);
-                ordem.IdResp = usuario.Id;
-                // Efetuar o cadastro:
-                if(ordem.NovoLancamento() == true)
+                var r = MessageBox.Show("Tem certeza que deseja lançar?", "Aviso!",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (r == DialogResult.Yes && txbQuantidade.Text != "")
                 {
-                    MessageBox.Show("Lançamento efetuado!","Sucesso",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Falha no lançamento!","Erro",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Classes.OrdemComanda ordem = new Classes.OrdemComanda();
+                    // Obter os valores dos campos:
+                    ordem.IdFicha = int.Parse(txbComandas.Text);
+                    ordem.IdProduto = int.Parse(txbCodProduto.Text);
+                    ordem.Quantidade = int.Parse(txbQuantidade.Text);
+                    ordem.IdResp = usuario.Id;
+                    // Efetuar o cadastro:
+                    if (ordem.NovoLancamento() == true)
+                    {
+                        MessageBox.Show("Lançamento efetuado!", "Sucesso",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LimparTudo();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Falha no lançamento!", "Erro",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        LimparTudo();
+                    }
                 }
             }
+            else
+            {
+                MessageBox.Show("Informe a quantidade!","Erro!",
+                    MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnContinuar_Click(object sender, EventArgs e)
+        {
+            // Verificar se o número da comanda e cód do produto não estão vazios:
+            if(txbComandas.Text != "" && txbCodProduto.Text != "")
+            {
+                grbLançamento.Enabled = true;
+                grbInfos.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Verificar as informações digitadas!",
+                    "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void LimparTudo()
+        {
+            // Limpar os campos:
+            txbCodProduto.Clear();
+            txbQuantidade.Clear();
+            txbProdutoLan.Clear();
+            txbComandas.Clear();
+
+            // Resetar os grbs:
+            grbInfos.Enabled = true;
+            grbLançamento.Enabled = false;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            LimparTudo();
         }
     }
 }
